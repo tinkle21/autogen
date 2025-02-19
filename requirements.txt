@@ -2,3 +2,12 @@ autogen-agentchat
 autogen-ext[azure]
 python-dotenv
 azure-identity
+autogenstudio
+yfinance 
+matplotlib 
+pytz 
+numpy 
+pandas 
+python-dotenv 
+requests 
+bs4
