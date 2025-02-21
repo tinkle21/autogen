@@ -1,6 +1,7 @@
 # Autogen Learning
 
 ## Installation
+
 ```bash
 # Clone the repository
 git clone https://github.com/tinkle21/autogen.git
@@ -8,46 +9,61 @@ git clone https://github.com/tinkle21/autogen.git
 # Navigate into the project directory
 cd autogen
 
-## Create a Virtual Enviornment
+# Create a Virtual Environment
 python -m venv autogen-venv
 
-## Activate Newly created enviornment
+# Activate the newly created environment
 source autogen-venv/bin/activate
-![alt text](image.png)
+```
 
-## Install required depedency
+## Install Required Dependencies
+
+```bash
 pip install -r requirements.txt
+```
 
-## Update .env file
-All application using Azure OpenAI endpoint, gpt-4o model and Key. update .env file accoridngly.
+## Update `.env` File
+Ensure that the `.env` file is updated with the necessary credentials for Azure OpenAI, using the `gpt-4o` model and API key.
 
-## Application to generate Kids story using Story writer and Story Reviewer agent.
-This uses roundrobinchat to review and re-write story until "APPROVE" is not passed by Reviewer
+## Applications
+
+### Kids Story Generation with Story Writer & Story Reviewer Agents
+This application uses `RoundRobinChat` to iteratively review and refine a story until the Reviewer approves it.
+
 ```bash
 python teams.py
+```
 
-## Application to generate Kids story using Planner,Story writer,Story Moral writer and Story Reviewer agent.
-This uses Selectorgroupchat to plan,review,provide moral ending and re-write story until "APPROVE" is not passed by Reviewer or Max turn reached to 10
+### Kids Story Generation with Planner, Story Writer, Moral Writer & Reviewer Agents
+This application uses `SelectorGroupChat` to plan, review, provide a moral ending, and refine the story until the Reviewer approves it or a maximum of 10 turns is reached.
+
 ```bash
 python selector.py
+```
 
-## Travel agnet Application .
-This uses roundrobinchat to planner_agent, local_agent, language_agent, travel_summary_agent until "TERMINATE" is not passed by planner_agent 
+### Travel Agent Application
+This application utilizes `RoundRobinChat` to coordinate between `planner_agent`, `local_agent`, `language_agent`, and `travel_summary_agent` until `TERMINATE` is passed by `planner_agent`.
+
 ```bash
 python travel_agents.py
+```
 
-## company research Application by creating new tools.
-This application create tools googlesearch, and tock analysis and use it by agents stock_analysis_agent, search_agent, report_agent to analysis stock of a company.
+### Company Research Application with Custom Tools
+This application creates custom tools (`googlesearch` and `stock_analysis`) and utilizes agents (`stock_analysis_agent`, `search_agent`, `report_agent`) to analyze a company's stock.
+
 ```bash
 python company_research.py
+```
 
-## Start a autogen studio .
-autogenstudio ui --port 8081 --appdir ./<new_dir_name> 
+## Start Autogen Studio
 
-## code to generate json for autogenstudio UI teams from python script.Used in teams.py
-This dump can pe copy paste in any new teams UI<-->JSON
 ```bash
+autogenstudio ui --port 8081 --appdir ./<new_dir_name>
+```
+
+## Generate JSON for Autogen Studio UI Teams from Python Script
+This script generates JSON that can be copied and pasted into any new Teams UI configuration.
+
+```python
 config = team.dump_component()
 print(config.model_dump_json())
-
-
