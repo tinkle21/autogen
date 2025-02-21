@@ -56,7 +56,7 @@ python company_research.py
 ```
 
 ## Start Autogen Studio
-
+Using Autogen Studio, either we can build similar agentic application through UI from scratch or see above built application in UI mode by exporting above application code as json dump(as below). This command will start autogen studio in your local host and save your studio working in provided app directory.
 ```bash
 autogenstudio ui --port 8081 --appdir ./<new_dir_name>
 ```
